@@ -74,10 +74,11 @@ const App = () => {
       const id = localStorage.getItem('userId');
       const name = localStorage.getItem('username');
       const image = localStorage.getItem('image');
+      const password = localStorage.getItem('password');
 
       console.log({ id, name, image })
 
-      await client.connectUser({ id, name, image, }, token);
+      await client.connectUser({ id, name, image, password }, token);
 
       setChatClient(client);
     };

@@ -9,10 +9,11 @@ const Auth = () => {
 
     const login = () => {
         axios.post('http://localhost:5000/auth/login', { userId, username: userId, password })
-          .then(({data}) => {
+          .then(({ data }) => {
             localStorage.setItem('token', data.token)
             localStorage.setItem('username', data.user.username)
             localStorage.setItem('userId', data.user.userId)
+            localStorage.setItem('password', data.user.password)
             localStorage.setItem('image', 'https://www.kindpng.com/picc/m/78-786207_user-avatar-png-user-avatar-icon-png-transparent.png')
           })
           .catch((error) => {
