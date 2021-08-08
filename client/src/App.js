@@ -7,6 +7,16 @@ import { ChannelInner } from './components/ChannelInner/ChannelInner';
 import { useChecklist } from './ChecklistTasks';
 import { getRandomImage } from './assets';
 
+import {
+  ChannelHeader,
+  MessageList,
+  MessageInput,
+  Thread,
+  Window,
+  LoadingIndicator,
+} from "stream-chat-react";
+import "stream-chat-react/dist/css/index.css";
+
 // import WindowControls from './components/WindowControls/WindowControls';
 
 import 'stream-chat-react/dist/css/index.css';
@@ -127,8 +137,57 @@ const App = () => {
   
   // <WindowControls setTheme={setTheme} />
   
+  const CustomList = (props) => {
+    const { children, error, loading, LoadingErrorIndicator, LoadingIndicator } = props;
+  
+    if (error) {
+      return <LoadingErrorIndicator type={'connection'} />;
+    }
+  
+    if (loading) {
+      return <LoadingIndicator />;
+    }
+  
+    return <div>{children}</div>;
+  };
+  
+  const CustomErrorIndicator = (props) => {
+    const { text } = props;
+  
+    return <div>{text}</div>;
+  };
+  
+  const CustomLoadingIndicator = () => {
+    return <div>Loading, loading, loading...</div>;
+  };
+  
   if (!localStorage.getItem('token')) return <Auth />
   if (!chatClient) return null;
+
+  // return (
+  //   <Chat client={chatClient} theme={`messaging ${theme}`}>
+  //   <div id="mobile-channel-list" onClick={toggleMobile}>
+  //     <ChannelList 
+  //       sort={sort} 
+  //       options={options}
+  //       // showChannelSearch
+  //       List={(props) => (
+  //           <MessagingChannelList {...props} onCreateChannel={() => setIsCreating(!isCreating)} />
+  //         )}
+  //         Preview={(props) => <MessagingChannelPreview {...props} {...{ setIsCreating }} />}
+  //     />
+  //   </div>
+  //   <Channel>
+  //     <Window>
+  //       <ChannelHeader />
+  //       <MessageList />
+  //       <MessageInput />
+  //     </Window>
+  //     <Thread />
+  //   </Channel>
+  // </Chat>
+
+  // )
 
   return (
     <Chat client={chatClient} theme={`messaging ${theme}`}>
