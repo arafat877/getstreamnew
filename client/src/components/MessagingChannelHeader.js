@@ -5,7 +5,7 @@ import { ChannelInfoIcon, ChannelSaveIcon, HamburgerIcon } from '../assets';
 import WindowControls from './WindowControls';
 import TypingIndicator from './TypingIndicator';
 
-const MessagingChannelHeader = (props) => {
+const MessagingChannelHeader = ({ theme, setTheme, toggleMobile }) => {
   const { client } = useChatContext();
   const { channel } = useChannelStateContext();
 
@@ -68,7 +68,7 @@ const MessagingChannelHeader = (props) => {
 
   return (
     <div className="messaging__channel-header">
-      <div id="mobile-nav-icon" className={`${props.theme}`} onClick={() => props.toggleMobile()}>
+      <div id="mobile-nav-icon" className={`${theme}`} onClick={toggleMobile}>
         <HamburgerIcon />
       </div>
       <Avatar image={members.length === 1 ? members[0]?.user.image : 'https://www.pngkit.com/png/full/128-1284523_group-chat-icon-google-group-chat-icon.png'} size={40} />
@@ -82,7 +82,7 @@ const MessagingChannelHeader = (props) => {
         {channelName !== 'Social Demo'
           && (!isEditing ? <ChannelInfoIcon {...{ isEditing, setIsEditing }} /> : <ChannelSaveIcon />)}
       </div>
-      <WindowControls theme={props.theme} setTheme={props.setTheme} />
+      <WindowControls theme={theme} setTheme={setTheme} />
     </div>
   );
 };
