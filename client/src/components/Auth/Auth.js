@@ -22,7 +22,7 @@ const Auth = () => {
       }
       
       return (
-        <div style={{ display: 'flex', justifyContent:"center", alignItems: 'center', flexDirection: 'column', margin: '20%'}}>
+        <div style={{ display: 'flex', justifyContent:"center", alignItems: 'center', flexDirection: 'column' }}>
             <input placeholder="User ID" value={userId} onChange={(e) => setUserId(e.target.value)}/>
             <br />
             <input placeholder="Username" value={userId} onChange={(e) => setUsername(e.target.value)}/>

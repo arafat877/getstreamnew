@@ -26,6 +26,25 @@ body::-webkit-scrollbar-thumb {
   background-color: transparent;
 }
 
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #212326;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #424447;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
 #root {
   height: 100%;
 }

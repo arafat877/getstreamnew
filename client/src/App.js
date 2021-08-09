@@ -22,6 +22,7 @@ import "stream-chat-react/dist/css/index.css";
 import 'stream-chat-react/dist/css/index.css';
 import './App.css';
 import Auth from './components/Auth/Auth';
+import AuthNew from './components/Auth/AuthNew';
 
 const urlParams = new URLSearchParams(window.location.search);
 
@@ -162,33 +163,27 @@ const App = () => {
     return <div>Loading, loading, loading...</div>;
   };
   
-  if (!localStorage.getItem('token')) return <Auth />
+  if (!localStorage.getItem('token')) return <AuthNew />
   if (!chatClient) return null;
 
-  // return (
-  //   <Chat client={chatClient} theme={`messaging ${theme}`}>
-  //   <div id="mobile-channel-list" onClick={toggleMobile}>
-  //     <ChannelList 
-  //       sort={sort} 
-  //       options={options}
-  //       // showChannelSearch
-  //       List={(props) => (
-  //           <MessagingChannelList {...props} onCreateChannel={() => setIsCreating(!isCreating)} />
-  //         )}
-  //         Preview={(props) => <MessagingChannelPreview {...props} {...{ setIsCreating }} />}
-  //     />
-  //   </div>
-  //   <Channel>
-  //     <Window>
-  //       <ChannelHeader />
-  //       <MessageList />
-  //       <MessageInput />
-  //     </Window>
-  //     <Thread />
-  //   </Channel>
-  // </Chat>
+  return (
+    <Chat client={chatClient} theme={`messaging ${theme}`}>
+    <div id="mobile-channel-list" onClick={toggleMobile}>
+    <button onClick={() => {localStorage.clear(); window.location.reload()}}>Clear</button>
 
-  // )
+      <ChannelList  sort={sort}  options={options} />
+    </div>
+    <Channel>
+      <Window>
+        <ChannelHeader />
+        <MessageList />
+        <MessageInput />
+      </Window>
+      <Thread />
+    </Channel>
+  </Chat>
+
+  )
 
   return (
     <Chat client={chatClient} theme={`messaging ${theme}`}>
