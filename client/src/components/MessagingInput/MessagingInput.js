@@ -14,9 +14,9 @@ import { EmojiIcon, LightningBoltSmall, SendIcon } from '../../assets';
 import './MessagingInput.css';
 
 const GiphyIcon = () => (
-  <div className='giphy-icon__wrapper'>
+  <div className="giphy-icon__wrapper">
     <LightningBoltSmall />
-    <p className='giphy-icon__text'>GIPHY</p>
+    <p className="giphy-icon__text">GIPHY</p>
   </div>
 );
 
@@ -46,11 +46,11 @@ const MessagingInput = () => {
   );
 
   return (
-    <div className='str-chat__messaging-input'>
+    <div className="str-chat__messaging-input">
       <div
-        className='messaging-input__button emoji-button'
-        role='button'
-        aria-roledescription='button'
+        className="messaging-input__button emoji-button"
+        role="button"
+        aria-roledescription="button"
         onClick={messageInput.openEmojiPicker}
         ref={messageInput.emojiPickerRef}
       >
@@ -61,20 +61,20 @@ const MessagingInput = () => {
         handleFiles={messageInput.uploadNewFiles}
         multiple={multipleUploads}
         disabled={
-          (maxNumberOfFiles !== undefined && messageInput.numberOfUploads >= maxNumberOfFiles) ||
-          giphyState
+          (maxNumberOfFiles !== undefined && messageInput.numberOfUploads >= maxNumberOfFiles)
+          || giphyState
         }
       >
-        <div className='messaging-input__input-wrapper'>
+        <div className="messaging-input__input-wrapper">
           {giphyState && !messageInput.numberOfUploads && <GiphyIcon />}
           <UploadsPreview />
-          <ChatAutoComplete onChange={onChange} rows={1} placeholder='Send a message' />
+          <ChatAutoComplete onChange={onChange} rows={1} placeholder="Send a message" />
         </div>
       </ImageDropzone>
       <div
-        className='messaging-input__button'
-        role='button'
-        aria-roledescription='button'
+        className="messaging-input__button"
+        role="button"
+        aria-roledescription="button"
         onClick={messageInput.handleSubmit}
       >
         <SendIcon />

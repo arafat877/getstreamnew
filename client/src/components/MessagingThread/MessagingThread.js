@@ -12,10 +12,10 @@ const MessagingThreadHeader = ({ closeThread, thread }) => {
   };
 
   return (
-    <div className='custom-thread-header'>
-      <div className='custom-thread-header__left'>
-        <p className='custom-thread-header__left-title'>Thread</p>
-        <p className='custom-thread-header__left-count'>{getReplyCount()}</p>
+    <div className="custom-thread-header">
+      <div className="custom-thread-header__left">
+        <p className="custom-thread-header__left-title">Thread</p>
+        <p className="custom-thread-header__left-count">{getReplyCount()}</p>
       </div>
       <CloseThreadIcon {...{ closeThread }} />
     </div>

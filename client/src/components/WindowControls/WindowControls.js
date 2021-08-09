@@ -23,7 +23,7 @@ const WindowControls = ({ theme, setTheme }) => {
   }, [theme]);
 
   return (
-    <div className='window-controls__container'>
+    <div className="window-controls__container">
       <div className={`window-controls__button-wrapper ${theme}`}>
         <div
           className={`window-controls__button ${theme === 'dark' && 'selected'} ${theme}`}

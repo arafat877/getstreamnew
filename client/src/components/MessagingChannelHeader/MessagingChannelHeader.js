@@ -6,10 +6,11 @@ import './MessagingChannelHeader.css';
 import { TypingIndicator } from '../TypingIndicator/TypingIndicator';
 
 import { ChannelInfoIcon, ChannelSaveIcon, getCleanImage, HamburgerIcon } from '../../assets';
+
 const getAvatarGroup = (members) => {
   if (members.length === 1) {
     return (
-      <div className='messaging__channel-header__avatars'>
+      <div className="messaging__channel-header__avatars">
         <Avatar image={getCleanImage(members[0])} name={members[0].user?.id} size={40} />;
       </div>
     );
@@ -17,12 +18,12 @@ const getAvatarGroup = (members) => {
 
   if (members.length === 2) {
     return (
-      <div className='messaging__channel-header__avatars two'>
+      <div className="messaging__channel-header__avatars two">
         <span>
           <Avatar
             image={getCleanImage(members[0])}
             name={members[0].user?.id}
-            shape='square'
+            shape="square"
             size={40}
           />
         </span>
@@ -30,7 +31,7 @@ const getAvatarGroup = (members) => {
           <Avatar
             image={getCleanImage(members[1])}
             name={members[1].user?.id}
-            shape='square'
+            shape="square"
             size={40}
           />
         </span>
@@ -40,12 +41,12 @@ const getAvatarGroup = (members) => {
 
   if (members.length === 3) {
     return (
-      <div className='messaging__channel-header__avatars three'>
+      <div className="messaging__channel-header__avatars three">
         <span>
           <Avatar
             image={getCleanImage(members[0])}
             name={members[0].user?.id}
-            shape='square'
+            shape="square"
             size={40}
           />
         </span>
@@ -53,13 +54,13 @@ const getAvatarGroup = (members) => {
           <Avatar
             image={getCleanImage(members[1])}
             name={members[1].user?.id}
-            shape='square'
+            shape="square"
             size={20}
           />
           <Avatar
             image={getCleanImage(members[2])}
             name={members[2].user?.id}
-            shape='square'
+            shape="square"
             size={20}
           />
         </span>
@@ -69,18 +70,18 @@ const getAvatarGroup = (members) => {
 
   if (members.length >= 4) {
     return (
-      <div className='messaging__channel-header__avatars four'>
+      <div className="messaging__channel-header__avatars four">
         <span>
           <Avatar
             image={getCleanImage(members[members.length - 1])}
             name={members[0].user?.id}
-            shape='square'
+            shape="square"
             size={20}
           />
           <Avatar
             image={getCleanImage(members[members.length - 2])}
             name={members[1].user?.id}
-            shape='square'
+            shape="square"
             size={20}
           />
         </span>
@@ -88,13 +89,13 @@ const getAvatarGroup = (members) => {
           <Avatar
             image={getCleanImage(members[members.length - 3])}
             name={members[2].user?.id}
-            shape='square'
+            shape="square"
             size={20}
           />
           <Avatar
             image={getCleanImage(members[members.length - 4])}
             name={members[3].user?.id}
-            shape='square'
+            shape="square"
             size={20}
           />
         </span>
@@ -156,33 +157,32 @@ const MessagingChannelHeader = (props) => {
     >
       <input
         autoFocus
-        className='channel-header__edit-input'
+        className="channel-header__edit-input"
         onBlur={updateChannel}
         onChange={(e) => setChannelName(e.target.value)}
-        placeholder='Type a new name for the chat'
+        placeholder="Type a new name for the chat"
         ref={inputRef}
         value={channelName}
       />
     </form>
   );
 
-
   return (
-    <div className='messaging__channel-header'>
-      <div id='mobile-nav-icon' className={`${props.theme}`} onClick={() => props.toggleMobile()}>
+    <div className="messaging__channel-header">
+      <div id="mobile-nav-icon" className={`${props.theme}`} onClick={() => props.toggleMobile()}>
         <HamburgerIcon />
       </div>
-      <button onClick={() => {localStorage.clear(); window.location.reload()}}>Clear</button>
+      <button onClick={() => { localStorage.clear(); window.location.reload(); }}>Clear</button>
       {getAvatarGroup(members)}
       {!isEditing ? (
-        <div className='channel-header__name'>{channelName || title}</div>
+        <div className="channel-header__name">{channelName || title}</div>
       ) : (
         <EditHeader />
       )}
-      <div className='messaging__channel-header__right'>
+      <div className="messaging__channel-header__right">
         <TypingIndicator />
-        {channelName !== 'Social Demo' &&
-          (!isEditing ? <ChannelInfoIcon {...{ isEditing, setIsEditing }} /> : <ChannelSaveIcon />)}
+        {channelName !== 'Social Demo'
+          && (!isEditing ? <ChannelInfoIcon {...{ isEditing, setIsEditing }} /> : <ChannelSaveIcon />)}
       </div>
     </div>
   );

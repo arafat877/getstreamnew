@@ -32,11 +32,11 @@ export const ChannelInner = (props) => {
         ...newMessage,
         parent: parentMessage
           ? {
-              ...parentMessage,
-              created_at: parentMessage.created_at?.toString(),
-              pinned_at: parentMessage.pinned_at?.toString(),
-              updated_at: parentMessage.updated_at?.toString(),
-            }
+            ...parentMessage,
+            created_at: parentMessage.created_at?.toString(),
+            pinned_at: parentMessage.pinned_at?.toString(),
+            updated_at: parentMessage.updated_at?.toString(),
+          }
           : undefined,
       };
 

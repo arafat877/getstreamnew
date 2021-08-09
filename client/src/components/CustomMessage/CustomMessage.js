@@ -3,12 +3,10 @@ import { MessageSimple } from 'stream-chat-react';
 
 import './CustomMessage.css';
 
-const CustomMessage = (props) => {
-  return (
-    <>
-      <MessageSimple {...props} />
-    </>
-  );
-};
+const CustomMessage = (props) => (
+  <>
+    <MessageSimple {...props} />
+  </>
+);
 
 export default CustomMessage;

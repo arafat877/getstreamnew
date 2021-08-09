@@ -7,10 +7,10 @@ import { XButton, XButtonBackground } from '../../assets';
 import './CreateChannel.css';
 
 const UserResult = ({ user }) => (
-  <li className='messaging-create-channel__user-result'>
+  <li className="messaging-create-channel__user-result">
     <Avatar image={user.image} name={user.name || user.id} size={40} />
-    {user.online && <div className='messaging-create-channel__user-result-online' />}
-    <div className='messaging-create-channel__user-result__details'>
+    {user.online && <div className="messaging-create-channel__user-result-online" />}
+    <div className="messaging-create-channel__user-result__details">
       <span>{user.name}</span>
       {/* <span className='messaging-create-channel__user-result__details__last-seen'>{user.online}</span> */}
     </div>
@@ -153,20 +153,20 @@ const CreateChannel = ({ onClose, toggleMobile }) => {
   }, [handleKeyDown]);
 
   return (
-    <div className='messaging-create-channel'>
+    <div className="messaging-create-channel">
       <header>
-        <div className='messaging-create-channel__left'>
-          <div className='messaging-create-channel__left-text'>To: </div>
-          <div className='users-input-container'>
+        <div className="messaging-create-channel__left">
+          <div className="messaging-create-channel__left-text">To: </div>
+          <div className="users-input-container">
             {!!selectedUsers?.length && (
-              <div className='messaging-create-channel__users'>
+              <div className="messaging-create-channel__users">
                 {selectedUsers.map((user) => (
                   <div
-                    className='messaging-create-channel__user'
+                    className="messaging-create-channel__user"
                     onClick={() => removeUser(user)}
                     key={user.id}
                   >
-                    <div className='messaging-create-channel__user-text'>{user.name}</div>
+                    <div className="messaging-create-channel__user-text">{user.name}</div>
                     <XButton />
                   </div>
                 ))}
@@ -179,22 +179,22 @@ const CreateChannel = ({ onClose, toggleMobile }) => {
                 value={inputText}
                 onChange={(e) => setInputText(e.target.value)}
                 placeholder={!selectedUsers.length ? 'Start typing for suggestions' : ''}
-                type='text'
-                className='messaging-create-channel__input'
+                type="text"
+                className="messaging-create-channel__input"
               />
             </form>
           </div>
-          <div className='close-mobile-create' onClick={() => toggleMobile()}>
+          <div className="close-mobile-create" onClick={() => toggleMobile()}>
             <XButtonBackground />
           </div>
         </div>
-        <button className='create-channel-button' onClick={createChannel}>
+        <button className="create-channel-button" onClick={createChannel}>
           Start chat
         </button>
       </header>
       {inputText && (
         <main>
-          <ul className='messaging-create-channel__user-results'>
+          <ul className="messaging-create-channel__user-results">
             {!!users?.length && !searchEmpty && (
               <div>
                 {users.map((user, i) => (
@@ -216,7 +216,7 @@ const CreateChannel = ({ onClose, toggleMobile }) => {
                   inputRef.current.focus();
                   clearState();
                 }}
-                className='messaging-create-channel__user-result empty'
+                className="messaging-create-channel__user-result empty"
               >
                 No people found...
               </div>

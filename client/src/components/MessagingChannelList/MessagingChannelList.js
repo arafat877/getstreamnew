@@ -24,25 +24,23 @@ const MessagingChannelList = ({ children, error = false, loading, onCreateChanne
     }
   }, [loading]); // eslint-disable-line
 
-  const ListHeaderWrapper = ({ children }) => {
-    return (
-      <div className='messaging__channel-list'>
-        <div className='messaging__channel-list__header'>
-          <Avatar image={image} name={name} size={40} />
-          <div className='messaging__channel-list__header__name'>{name || id}</div>
-          <button className='messaging__channel-list__header__button' onClick={onCreateChannel}>
-            <CreateChannelIcon />
-          </button>
-        </div>
-        {children}
+  const ListHeaderWrapper = ({ children }) => (
+    <div className="messaging__channel-list">
+      <div className="messaging__channel-list__header">
+        <Avatar image={image} name={name} size={40} />
+        <div className="messaging__channel-list__header__name">{name || id}</div>
+        <button className="messaging__channel-list__header__button" onClick={onCreateChannel}>
+          <CreateChannelIcon />
+        </button>
       </div>
-    );
-  };
+      {children}
+    </div>
+  );
 
   if (error) {
     return (
       <ListHeaderWrapper>
-        <div className='messaging__channel-list__message'>
+        <div className="messaging__channel-list__message">
           Error loading conversations, please try again momentarily.
         </div>
       </ListHeaderWrapper>
@@ -52,7 +50,7 @@ const MessagingChannelList = ({ children, error = false, loading, onCreateChanne
   if (loading) {
     return (
       <ListHeaderWrapper>
-        <div className='messaging__channel-list__message'>
+        <div className="messaging__channel-list__message">
           <SkeletonLoader />
         </div>
       </ListHeaderWrapper>

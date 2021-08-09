@@ -31,8 +31,8 @@ export const useChecklist = (chatClient, targetOrigin) => {
           }
           if (message.attachments.length) {
             if (
-              message.attachments[0].type === 'video' &&
-              message.attachments[0].og_scrape_url === YOUTUBE_LINK
+              message.attachments[0].type === 'video'
+              && message.attachments[0].og_scrape_url === YOUTUBE_LINK
             ) {
               notify(SEND_YOUTUBE);
               break;
