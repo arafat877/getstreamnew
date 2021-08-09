@@ -2,9 +2,7 @@ import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { Avatar, useChatContext } from 'stream-chat-react';
 import _debounce from 'lodash.debounce';
 
-import { XButton, XButtonBackground } from '../../assets';
-
-import './CreateChannel.css';
+import { XButton, XButtonBackground } from '../assets';
 
 const UserResult = ({ user }) => (
   <li className="messaging-create-channel__user-result">

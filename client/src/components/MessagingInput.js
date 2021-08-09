@@ -1,17 +1,9 @@
 import React, { useCallback, useContext } from 'react';
 import { ImageDropzone } from 'react-file-utils';
-import {
-  ChatAutoComplete,
-  EmojiPicker,
-  UploadsPreview,
-  useChannelStateContext,
-  useMessageInputContext,
-} from 'stream-chat-react';
+import { ChatAutoComplete, EmojiPicker, UploadsPreview, useChannelStateContext, useMessageInputContext } from 'stream-chat-react';
 
-import { GiphyContext } from '../../App';
-import { EmojiIcon, LightningBoltSmall, SendIcon } from '../../assets';
-
-import './MessagingInput.css';
+import { EmojiIcon, LightningBoltSmall, SendIcon } from '../assets';
+import { GiphyContext } from '../App';
 
 const GiphyIcon = () => (
   <div className="giphy-icon__wrapper">

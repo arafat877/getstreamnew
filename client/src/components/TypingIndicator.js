@@ -1,9 +1,7 @@
 import React from 'react';
 import { useChatContext, useTypingContext } from 'stream-chat-react';
 
-import './TypingIndicator.css';
-
-export const TypingIndicator = () => {
+const TypingIndicator = () => {
   const { client } = useChatContext();
   const { typing } = useTypingContext();
 
@@ -36,3 +34,5 @@ export const TypingIndicator = () => {
     </div>
   );
 };
+
+export default TypingIndicator;

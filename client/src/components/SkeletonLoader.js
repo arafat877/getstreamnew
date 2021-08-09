@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const SkeletonLoader = () => (
+const SkeletonLoader = () => (
   <div style={{ position: 'relative' }}>
     <ul className="skeleton-loader__list">
       <li>
@@ -41,3 +41,5 @@ export const SkeletonLoader = () => (
     </ul>
   </div>
 );
+
+export default SkeletonLoader;

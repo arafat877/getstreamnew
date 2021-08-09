@@ -66,25 +66,3 @@ export const getRandomImage = () => {
   const index = Math.floor(Math.random() * 24);
   return randomImages[index];
 };
-
-export const getCleanImage = (member) => {
-  let cleanImage = member.user?.image || '';
-
-  const cleanIndex = randomImages.findIndex((image) => image.includes(cleanImage.slice(1, -14)));
-
-  if (cleanIndex === -1) {
-    cleanImage = getRandomImage();
-  } else {
-    cleanImage = randomImages[cleanIndex];
-  }
-
-  if (member.user?.name === 'Jen Alexander') {
-    cleanImage = randomImages[11];
-  }
-
-  if (member.user?.name === 'Kevin Rosen') {
-    cleanImage = randomImages[23];
-  }
-
-  return cleanImage;
-};

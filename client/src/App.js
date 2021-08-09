@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { StreamChat } from 'stream-chat';
-import { Chat, Channel, ChannelList } from 'stream-chat-react';
+import { Chat, Channel, ChannelList, ChannelHeader, MessageList, MessageInput, Thread, Window, LoadingIndicator } from 'stream-chat-react';
 
 import { CreateChannel, CustomMessage, MessagingChannelList, MessagingChannelPreview, MessagingInput, MessagingThreadHeader } from './components';
-import { ChannelInner } from './components/ChannelInner/ChannelInner';
+import { ChannelInner } from './components/ChannelInner';
 import { useChecklist } from './ChecklistTasks';
 import 'stream-chat-react/dist/css/index.css';
 
@@ -117,7 +117,20 @@ const App = () => {
         >
           {isCreating && <CreateChannel toggleMobile={toggleMobile} onClose={() => setIsCreating(false)} />}
           <GiphyContext.Provider value={giphyContextValue}>
-            <ChannelInner theme={theme} toggleMobile={toggleMobile} />
+            <ChannelInner theme={theme} toggleMobile={toggleMobile} setTheme={setTheme} />
+
+            {/* <Window>
+              <ChannelHeader />
+              <MessageList />
+              <MessageInput />
+            </Window>
+            <Thread /> */}
+            {/* <Window>
+        <MessagingChannelHeader theme={theme} toggleMobile={toggleMobile} />
+        <MessageList messageActions={actions} />
+        <MessageInput focus overrideSubmitHandler={overrideSubmitHandler} />
+      </Window>
+      <Thread Input={MessagingInput} /> */}
           </GiphyContext.Provider>
         </Channel>
       </div>

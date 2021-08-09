@@ -1,7 +1,5 @@
 import React, { useEffect } from 'react';
 
-import './WindowControls.css';
-
 const WindowControls = ({ theme, setTheme }) => {
   const darkClick = () => {
     if (theme === 'dark') return;
@@ -37,6 +35,12 @@ const WindowControls = ({ theme, setTheme }) => {
         >
           LIGHT UI
         </div>
+      </div>
+      <div
+        className="window-controls__button light"
+        onClick={() => { localStorage.clear(); window.location.reload(); }}
+      >
+        LOG OUT
       </div>
     </div>
   );
