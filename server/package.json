@@ -13,8 +13,8 @@
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.17.1",
-    "getstream": "^7.2.10",
+    "getstream": "^8.4.1",
     "nodemon": "^2.0.12",
-    "stream-chat": "^3.13.1"
+    "stream-chat": "^8.40.9"
   }
 }
